@@ -412,7 +412,7 @@
                 </div>
                 <div id="preloader-josue" class="profile-card">
                     <div class="profile-avatar-large avatar-J">J</div>
-                    <div class="profile-name-large">Josue Amaya</div>
+                    <div class="profile-name-large">Scott Churacutipa</div>
                     <div class="profile-role">Backend</div>
                     <div class="check-icon"><i class="fas fa-check-circle"></i></div>
                 </div>
@@ -439,7 +439,7 @@
                     <div class="row g-3 mb-4">
                         <div class="col-lg-3 col-md-6"><label class="form-label">Desde (Fecha Creación)</label><input type="date" id="filterStartDate" class="form-control"></div>
                         <div class="col-lg-3 col-md-6"><label class="form-label">Hasta (Fecha Creación)</label><input type="date" id="filterEndDate" class="form-control"></div>
-                        <div class="col-lg-3 col-md-6"><label class="form-label">Responsable</label><select id="filterResponsible" class="form-select"><option value="">Todos</option><option>Erick Mamani</option><option>Josue Amaya</option></select></div>
+                        <div class="col-lg-3 col-md-6"><label class="form-label">Responsable</label><select id="filterResponsible" class="form-select"><option value="">Todos</option><option>Erick Mamani</option><option>Scott Churacutipa</option></select></div>
                         <div class="col-lg-3 col-md-6 d-flex align-items-end gap-2"><button id="applyFilters" class="btn btn-dark w-100"><i class="fas fa-filter me-2"></i>Filtrar</button><button id="clearFilters" class="btn btn-light w-100"><i class="fas fa-times me-2"></i>Limpiar</button></div>
                     </div>
                     <div class="stats-grid">
@@ -516,7 +516,7 @@
     <!-- Lógica de la Aplicación -->
     <script>
     // --- CONFIGURACIÓN Y VARIABLES GLOBALES ---
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxo6DLwzUn9ATycVIWa1dfHOvQ0OKygB7zL6QJ0DuK8MvFnI8u4A9WS-fcX4C8SeuJ6IQ/exec"; // <-- ¡IMPORTANTE! PEGA AQUÍ LA URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydHdRECTUxAdReAanHI5lwE7dVREWoDgO2kSf7FSVhCGqstntd5nXTd4Y1mUyyLmdYKA/exec"; // <-- ¡IMPORTANTE! PEGA AQUÍ LA URL
     const MAX_IMAGES = 5, RETRY_LIMIT = 3;
     let allTasksData = [], taskModal, isDataLoaded = false, preselectedResponsible = null;
     let quillComentarios, quillCommit, uploadedFiles = [];
@@ -645,7 +645,7 @@
         } else { // Lógica de creación (optimista)
             const tempId = 'temp-' + Date.now();
             const tipo = $('#formTipo').val();
-            const responsable = (tipo === 'Backend') ? 'Josue Amaya' : 'Erick Mamani';
+            const responsable = (tipo === 'Backend') ? 'Scott Churacutipa' : 'Erick Mamani';
             const optimisticRow = [ tempId, new Date().toISOString(), new Date().toISOString(), tipo, $('#formDenominacion').val(), $('#formPrioridad').val(), 'En Proceso', '', quillComentarios.root.innerHTML, quillCommit.root.innerHTML, responsable, ...Array(5).fill('') ];
             allTasksData.unshift(optimisticRow);
             applyFilters();
@@ -688,7 +688,7 @@
             $('#modalTitle').text('Registrar Nueva Actividad');
             const preselectedFilter = preselectedResponsible || $('#filterResponsible').val();
             if (preselectedFilter) {
-                const type = preselectedFilter === 'Josue Amaya' ? 'Backend' : 'Frontend';
+                const type = preselectedFilter === 'Scott Churacutipa' ? 'Backend' : 'Frontend';
                 $('#formTipo').val(type).trigger('change');
             }
         }
@@ -728,7 +728,7 @@
         });
 
         $('#preloader-erick').on('click', () => handlePreloaderClick('Erick Mamani'));
-        $('#preloader-josue').on('click', () => handlePreloaderClick('Josue Amaya'));
+        $('#preloader-josue').on('click', () => handlePreloaderClick('Scott Churacutipa'));
         
         $('#newTaskBtn').on('click', () => openModal());
         $('#saveButton').on('click', handleFormSubmit);
@@ -773,7 +773,7 @@
         });
         $('#formTipo').on('change', function() {
             const type = $(this).val(); const profile = $('#responsible-profile');
-            const responsible = (type === 'Backend') ? { name: 'Josue Amaya', initial: 'J' } : { name: 'Erick Mamani', initial: 'E' };
+            const responsible = (type === 'Backend') ? { name: 'Scott Churacutipa', initial: 'J' } : { name: 'Erick Mamani', initial: 'E' };
             $('#profile-avatar').text(responsible.initial).removeClass('avatar-J avatar-E').addClass(`avatar-${responsible.initial}`);
             $('#profile-name').text(responsible.name);
             profile.slideDown(200);
